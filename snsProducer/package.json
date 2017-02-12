@@ -1,0 +1,31 @@
+{
+  "name": "snsProducer",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.9.0",
+    "node-lambda": "^0.8.12"
+  },
+  "devDependencies": {
+    "pryjs": "^1.0.3",
+    "chai": "^3.5.0"
+  },
+  "scripts": {
+    "dry-run": "node-lambda run --eventFile ./lambda-mocks/event.json --contextFile ./lambda-mocks/context.json",
+    "deploy": "node-lambda deploy",
+    "package": "node-lambda package",
+    "test": "mocha index.test.js",
+    "test-prod": "./bin/test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idkyet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idkyet/issues"
+  },
+  "homepage": "https://github.com/idkyet"
+}
