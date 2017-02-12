@@ -36,10 +36,12 @@ Stuff you want to customize from my setup is consolidated into `awsConstants.js`
 Stuff we'll need to setup on AWS:
 
 - [User with the right permissions](http://docs.aws.amazon.com/lambda/latest/dg/setup.html)
-- [RDS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html#CHAP_GettingStarted.Creating.MySQL)
+- [RDS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html#CHAP_GettingStarted.Creating.MySQL) (see also `aws.sh` for a sample rds initialization via cli)
+- [VPC must have DNS hostname turned on, for EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (if you're using default VPC you should be good)
 - [EC2](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html) for tunneling through to our RDS
 - migration on RDS, via `setup.sql`
 - [SNS](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/US_SetupSNS.html)
+- Lambda & RDS should be in the same security group
 - [Lambda execution role](http://docs.aws.amazon.com/lambda/latest/dg/with-s3-example-create-iam-role.html)
 
 Stuff we'll need to setup locally:
