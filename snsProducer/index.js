@@ -2,12 +2,12 @@
 /*jslint node: true */
 
 require('./lib/arrayIncludes.js');
+const awsConstants = require('../awsConstants.js');
 
 const AWS = require('aws-sdk');
 AWS.config.update({region:'us-east-1'});
 
 const SNS = new AWS.SNS();
-const topic = 'arn:aws:sns:us-east-1:461568168936:hi-lambda';
 
 /* APIGateway -> Lambda -> SNS */
 function handler( event, context ) {
@@ -20,7 +20,7 @@ function handler( event, context ) {
   var snsParams = {
     Message: messageBody,
     Subject: "Test SNS From Lambda",
-    TopicArn: topic
+    TopicArn: awsConstants.SNS_TOPIC
   };
 
   SNS.publish(snsParams, function(err, data) {

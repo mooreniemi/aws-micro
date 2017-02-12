@@ -2,6 +2,7 @@
 /*jslint node: true */
 "use strict";
 
+const awsConstants = require('../awsConstants.js');
 const mysql = require('promise-mysql');
 
 let connection;
@@ -9,7 +10,7 @@ const connectionConfig = {
   host: process.env.RDS_HOST,
   user: process.env.RDS_USERNAME,
   password: process.env.RDS_PASSWORD,
-  database: 'lambda',
+  database: awsConstants.MESSAGES_DATABASE_NAME,
   port: '3306'
 };
 

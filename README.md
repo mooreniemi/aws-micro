@@ -31,16 +31,24 @@ Microservice frameworks often use brokers to achieve async communication between
 
 ## setup
 
+Stuff you want to customize from my setup is consolidated into `awsConstants.js`.
+
 Stuff we'll need to setup on AWS:
 
-- RDS
-- SNS
-- User with the right permissions
-- Lambda execution role
+- [User with the right permissions](http://docs.aws.amazon.com/lambda/latest/dg/setup.html)
+- [RDS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html#CHAP_GettingStarted.Creating.MySQL)
+- [EC2](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html) for tunneling through to our RDS
+- migration on RDS, via `setup.sql`
+- [SNS](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/US_SetupSNS.html)
+- [Lambda execution role](http://docs.aws.amazon.com/lambda/latest/dg/with-s3-example-create-iam-role.html)
 
-Let's assume you have an [AWS account setup](http://docs.aws.amazon.com/lambda/latest/dg/setup.html), such that you have an `ACCESS_KEY` and `SECRET_ACCESS_KEY` and appropriate role permissions on that user.
+Stuff we'll need to setup locally:
 
-For use with [node-lambda](https://www.npmjs.com/package/node-lambda) you'll want the cli too, which is downloaded via `pip install awscli`.
+- [awscli](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- aws credentials via `aws --configure` using credentials from user setup
+- [node-lambda](https://www.npmjs.com/package/node-lambda)
+- `npm install` in `snsConsumer` and `snsProducer` directories
+- RDS credentials (environment vars) and SNS topic ARN (`awsConstants.js`)
 
 ## usage
 
